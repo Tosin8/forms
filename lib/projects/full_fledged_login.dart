@@ -8,8 +8,7 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-
-  final textController = TextEditingController(); 
+  final textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +17,10 @@ class _FormPageState extends State<FormPage> {
       ),
       body: Container(
           padding: const EdgeInsets.all(10.0),
-          child: const TextField(
-            decoration: InputDecoration(
-              hintText: 'Enter Info',
-              labelText: 'Enter here'
-            ),
+          child: TextField(
+            controller: textController,
+            decoration: const InputDecoration(
+                hintText: 'Enter Info', labelText: 'Enter here'),
           )),
     );
   }
