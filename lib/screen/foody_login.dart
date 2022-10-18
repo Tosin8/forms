@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:forms/screen/foody_forgetpass.dart';
 
 import '../widgets/constants.dart';
+import 'foody_createaccount.dart';
 
 class foody_login extends StatefulWidget {
   const foody_login({super.key});
@@ -135,11 +136,19 @@ class _foody_loginState extends State<foody_login> {
             const SizedBox(height: 10),
             Column(
               children: [
-                Container(
-                  decoration: const BoxDecoration(
-                      border:
-                          Border(bottom: BorderSide(width: 1, color: kWhite))),
-                  child: const Text('Create New Account', style: kBodyText),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateAccount()));
+                  },
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(width: 1, color: kWhite))),
+                    child: const Text('Create New Account', style: kBodyText),
+                  ),
                 ),
                 const SizedBox(height: 20),
               ],
