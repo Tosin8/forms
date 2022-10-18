@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -29,21 +31,31 @@ class CreateAccount extends StatelessWidget {
           SizedBox(height: size.width * 0.1),
           Stack(children: [
             Center(
-              child: CircleAvatar(
-                  radius: size.width * 0.14,
-                  backgroundColor: Colors.grey.withOpacity(0.5),
-                  child: Icon(
-                    FontAwesomeIcons.user,
-                    color: kWhite,
-                    size: size.width * 0.1,
-                  )),
+              child: ClipOval(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                  child: CircleAvatar(
+                      radius: size.width * 0.14,
+                      backgroundColor: Colors.grey.withOpacity(0.5),
+                      child: Icon(
+                        FontAwesomeIcons.user,
+                        color: kWhite,
+                        size: size.width * 0.1,
+                      )),
+                ),
+              ),
             ),
-            Container(
-              width: size.width * 0.12,
-              height: size.width * 0.12,
-              decoration: BoxDecoration(
-                  border: Border.all(color: kWhite, width: 1),
-                  shape: BoxShape.circle),
+            Positioned(
+              top: size.width * 0.08,
+              left: size.width * .56,
+              child: Container(
+                width: size.width * 0.12,
+                height: size.width * 0.12,
+                decoration: BoxDecoration(
+                    border: Border.all(color: kWhite, width: 2),
+                    shape: BoxShape.circle),
+                child: const Icon(FontAwesomeIcons.arrowUp),
+              ),
             ),
           ]),
           SizedBox(height: size.width * 0.1),
