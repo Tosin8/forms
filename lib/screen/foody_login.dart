@@ -2,6 +2,7 @@
 
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import 'package:flutter/material.dart';
+import 'package:forms/screen/foody_forgetpass.dart';
 
 import '../widgets/constants.dart';
 
@@ -110,7 +111,14 @@ class _foody_loginState extends State<foody_login> {
                 ),
               ),
             ),
-            const Text('Forgot Password', style: kBodyText),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ForgotPassword()));
+                },
+                child: const Text('Forgot Password', style: kBodyText)),
             const SizedBox(height: 70),
             Container(
               height: 70,
