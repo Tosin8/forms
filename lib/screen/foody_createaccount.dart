@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:forms/screen/foody_login.dart';
 
 import '../widgets/constants.dart';
 
@@ -33,10 +34,10 @@ class CreateAccount extends StatelessWidget {
             Center(
               child: ClipOval(
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                  filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
                   child: CircleAvatar(
                       radius: size.width * 0.14,
-                      backgroundColor: Colors.grey.withOpacity(0.5),
+                      backgroundColor: Colors.grey[400]?.withOpacity(0.5),
                       child: Icon(
                         FontAwesomeIcons.user,
                         color: kWhite,
@@ -59,6 +60,162 @@ class CreateAccount extends StatelessWidget {
             ),
           ]),
           SizedBox(height: size.width * 0.1),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Container(
+                  height: 70,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[500]?.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Icon(
+                            FontAwesomeIcons.user,
+                            size: 30,
+                            color: kWhite,
+                          ),
+                        ),
+                        labelText: 'User',
+                        hintStyle: kBodyText,
+                      ),
+                      style: kBodyText,
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.next,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Container(
+                  height: 70,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[500]?.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Icon(
+                            FontAwesomeIcons.envelope,
+                            size: 30,
+                            color: kWhite,
+                          ),
+                        ),
+                        labelText: 'Email',
+                        hintStyle: kBodyText,
+                      ),
+                      obscureText: true,
+                      style: kBodyText,
+                      keyboardType: TextInputType.emailAddress,
+                      textInputAction: TextInputAction.next,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Container(
+                  height: 70,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[500]?.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Icon(
+                            FontAwesomeIcons.lock,
+                            size: 30,
+                            color: kWhite,
+                          ),
+                        ),
+                        labelText: 'Password',
+                        hintStyle: kBodyText,
+                      ),
+                      style: kBodyText,
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.next,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Container(
+                  height: 70,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[500]?.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Icon(
+                            FontAwesomeIcons.lock,
+                            size: 30,
+                            color: kWhite,
+                          ),
+                        ),
+                        labelText: 'Confirm Password',
+                        hintStyle: kBodyText,
+                      ),
+                      obscureText: true,
+                      style: kBodyText,
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.done,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                height: 70,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16), color: kBlue),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Register'),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                const Text('Already have an account?', style: kBodyText),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const foody_login()));
+                  },
+                  child: Text(
+                    'Login',
+                    style: kBodyText.copyWith(color: kBlue),
+                  ),
+                )
+              ]),
+              const SizedBox(height: 20),
+            ],
+          )
         ]),
       ],
     );
