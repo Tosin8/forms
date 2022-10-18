@@ -36,82 +36,92 @@ class _foody_loginState extends State<foody_login> {
       ),
       Container(
         decoration: const BoxDecoration(color: Colors.transparent),
-        child: Column(
-          children: [
-            const Flexible(
-              child: Center(
-                child: Text('Foodybite',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold)),
-              ),
+        child: Column(children: [
+          const Flexible(
+            child: Center(
+              child: Text('Foodybite',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 60,
+                      fontWeight: FontWeight.bold)),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Container(
-                height: 70,
-                width: 50,
-                decoration: BoxDecoration(
-                  color: Colors.grey[500]?.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Icon(
-                          FontAwesomeIcons.envelope,
-                          size: 30,
-                          color: kWhite,
-                        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Container(
+              height: 70,
+              width: 50,
+              decoration: BoxDecoration(
+                color: Colors.grey[500]?.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: const Center(
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Icon(
+                        FontAwesomeIcons.envelope,
+                        size: 30,
+                        color: kWhite,
                       ),
-                      labelText: 'Email Address',
-                      hintStyle: kBodyText,
                     ),
-                    style: kBodyText,
-                    keyboardType: TextInputType.emailAddress,
-                    textInputAction: TextInputAction.next,
+                    labelText: 'Email Address',
+                    hintStyle: kBodyText,
                   ),
+                  style: kBodyText,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Container(
-                height: 70,
-                width: 50,
-                decoration: BoxDecoration(
-                  color: Colors.grey[500]?.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Icon(
-                          FontAwesomeIcons.lock,
-                          size: 30,
-                          color: kWhite,
-                        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Container(
+              height: 70,
+              width: 50,
+              decoration: BoxDecoration(
+                color: Colors.grey[500]?.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: const Center(
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Icon(
+                        FontAwesomeIcons.lock,
+                        size: 30,
+                        color: kWhite,
                       ),
-                      labelText: 'Password',
-                      hintStyle: kBodyText,
                     ),
-                    obscureText: true,
-                    style: kBodyText,
-                    keyboardType: TextInputType.name,
-                    textInputAction: TextInputAction.done,
+                    labelText: 'Password',
+                    hintStyle: kBodyText,
                   ),
+                  obscureText: true,
+                  style: kBodyText,
+                  keyboardType: TextInputType.name,
+                  textInputAction: TextInputAction.done,
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          const SizedBox(height: 70),
+          Container(
+            height: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: kBlue,
+            ),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text(' Login ', style: kBodyText),
+            ),
+          ),
+        ]),
       ),
     ]);
   }
