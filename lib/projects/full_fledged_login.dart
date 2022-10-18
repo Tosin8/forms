@@ -8,20 +8,29 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  final textController = TextEditingController();
+  // final textController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Form Page'),
-      ),
-      body: Container(
+        appBar: AppBar(
+          title: const Text('Form Page'),
+        ),
+        body: Container(
           padding: const EdgeInsets.all(10.0),
-          child: TextField(
-            controller: textController,
-            decoration: const InputDecoration(
-                hintText: 'Enter Info', labelText: 'Enter here'),
-          )),
-    );
+          child: Column(children: const [
+            TextField(
+              //  controller: textController,
+              decoration: InputDecoration(
+                  hintText: 'Enter Info', labelText: 'Enter here'),
+            ),
+            //  Text(textController.text),
+          ]),
+        ));
   }
 }
