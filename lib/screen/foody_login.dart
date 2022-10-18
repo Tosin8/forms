@@ -46,83 +46,99 @@ class _foody_loginState extends State<foody_login> {
                       fontWeight: FontWeight.bold)),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Container(
-              height: 70,
-              width: 50,
-              decoration: BoxDecoration(
-                color: Colors.grey[500]?.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Icon(
-                        FontAwesomeIcons.envelope,
-                        size: 30,
-                        color: kWhite,
+          Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Container(
+                height: 70,
+                width: 50,
+                decoration: BoxDecoration(
+                  color: Colors.grey[500]?.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Center(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Icon(
+                          FontAwesomeIcons.envelope,
+                          size: 30,
+                          color: kWhite,
+                        ),
                       ),
+                      labelText: 'Email Address',
+                      hintStyle: kBodyText,
                     ),
-                    labelText: 'Email Address',
-                    hintStyle: kBodyText,
+                    style: kBodyText,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
                   ),
-                  style: kBodyText,
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Container(
-              height: 70,
-              width: 50,
-              decoration: BoxDecoration(
-                color: Colors.grey[500]?.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Icon(
-                        FontAwesomeIcons.lock,
-                        size: 30,
-                        color: kWhite,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Container(
+                height: 70,
+                width: 50,
+                decoration: BoxDecoration(
+                  color: Colors.grey[500]?.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Center(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Icon(
+                          FontAwesomeIcons.lock,
+                          size: 30,
+                          color: kWhite,
+                        ),
                       ),
+                      labelText: 'Password',
+                      hintStyle: kBodyText,
                     ),
-                    labelText: 'Password',
-                    hintStyle: kBodyText,
+                    obscureText: true,
+                    style: kBodyText,
+                    keyboardType: TextInputType.name,
+                    textInputAction: TextInputAction.done,
                   ),
-                  obscureText: true,
-                  style: kBodyText,
-                  keyboardType: TextInputType.name,
-                  textInputAction: TextInputAction.done,
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 70),
-          Container(
-            height: 70,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: kBlue,
+            const Text('Forgot Password', style: kBodyText),
+            const SizedBox(height: 70),
+            Container(
+              height: 70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: kBlue,
+              ),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text(' Login ',
+                    style: kBodyText.copyWith(fontWeight: FontWeight.bold)),
+              ),
             ),
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const Text(' Login ', style: kBodyText),
+            const SizedBox(height: 10),
+            Column(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                      border:
+                          Border(bottom: BorderSide(width: 1, color: kWhite))),
+                  child: const Text('Create New Account', style: kBodyText),
+                ),
+                const SizedBox(height: 20),
+              ],
             ),
-          ),
+          ]),
         ]),
-      ),
+      )
     ]);
   }
 }
