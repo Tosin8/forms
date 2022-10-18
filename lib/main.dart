@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import 'projects/full_fledged_login.dart';
+import 'projects/foodybite.dart';
 
 void main() {
   runApp(const MyApp());
