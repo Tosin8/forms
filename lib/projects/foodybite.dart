@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screen/foody_login.dart';
+import '../screen/foody/foody_login.dart';
 
 class FormPage extends StatefulWidget {
   const FormPage({super.key});

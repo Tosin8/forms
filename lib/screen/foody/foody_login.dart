@@ -2,9 +2,9 @@
 
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import 'package:flutter/material.dart';
-import 'package:forms/screen/foody_forgetpass.dart';
+import 'package:forms/screen/foody/foody_forgetpass.dart';
 
-import '../widgets/constants.dart';
+import '../../widgets/foody/constants_foody.dart';
 import 'foody_createaccount.dart';
 
 class foody_login extends StatefulWidget {

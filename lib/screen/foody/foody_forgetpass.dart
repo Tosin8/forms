@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../widgets/constants_foody.dart';
+import '../../widgets/foody/constants_foody.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
