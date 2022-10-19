@@ -1,8 +1,12 @@
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:forms/widgets/auth_form/constant.dart';
 
 class BackgroundPainter extends CustomPainter {
-  BackgroundPainter({required Animation<double> animation})
+  BackgroundPainter(
+      this.liquidAnim, this.blueAnim, this.greyAnim, this.orangeAnim,
+      {required Animation<double> animation})
       : bluePaint = Paint()
           ..color = lightBlue
           ..style = PaintingStyle.fill,
@@ -12,7 +16,40 @@ class BackgroundPainter extends CustomPainter {
         orangePaint = Paint()
           ..color = orange
           ..style = PaintingStyle.fill,
-        super(repaint : animation);
+        liquidAnim = CurvedAnimation(
+          curve: Curves.elasticOut,
+          reverseCurve: Curves.easeInBack,
+          parent: animation,
+        ),
+        orangeAnim = CurvedAnimation(
+          parent: animation,
+          curve: const Interval(
+            0,
+            0.7,
+            curve: Interval(0, 0.8, curve: SpringCurve()),
+          ),
+          reverseCurve: Curves.linear,
+        ),
+        greyAnim = CurvedAnimation(
+          parent: animation,
+          curve: const Interval(
+            0,
+            0.8,
+            curve: Interval(0, 0.9, curve: SpringCurve()),
+          ),
+          reverseCurve: Curves.easeInCirc,
+        ),
+        blueAnim = CurvedAnimation(
+          parent: animation,
+          curve: const SpringCurve(),
+          reverseCurve: Curves.easeInCirc,
+        ),
+        super(repaint: animation);
+
+  final Animation<double> liquidAnim;
+  final Animation<double> blueAnim;
+  final Animation<double> greyAnim;
+  final Animation<double> orangeAnim;
 
   final Paint bluePaint;
   final Paint greyPaint;
@@ -34,7 +71,10 @@ class BackgroundPainter extends CustomPainter {
     path.lineTo(0, 0);
     // path.quadraticBezierTo(size.width / 2, 0, size.width, size.height / 2);
     _addPointsToPath(path, [
-      Point(0, 0),
+      Point(
+        lerpDouble(0, size.height, blueAnim.value),
+        0,
+      ),
       Point(size.width / 2, size.height / 2),
       Point(size.width, size.height / 2)
     ]);
@@ -73,4 +113,20 @@ class Point {
   final double y;
 
   Point(this.x, this.y);
+}
+
+// custom curve to give gooey spring effect
+class SpringCurve extends Curve {
+  const SpringCurve({
+    this.a = 0.15,
+    this.w = 19.4,
+  });
+
+  final double a;
+  final double w;
+
+  @override
+  double transformInternal(double t) {
+    return (-(pow(e, -t / a) * cos(t * w)) + 1).toDouble();
+  }
 }

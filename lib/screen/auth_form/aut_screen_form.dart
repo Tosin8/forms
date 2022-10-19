@@ -28,7 +28,9 @@ class _AuthScreenState extends State<AuthScreen>
         children: [
           SizedBox.expand(
             child: CustomPaint(
-              painter: BackgroundPainter(animation: _controller.view),
+              painter: BackgroundPainter(
+                animation: _controller.view,
+              ),
             ),
           )
         ],
