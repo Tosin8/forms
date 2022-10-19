@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/auth_form/bkg_painter.dart';
+
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
@@ -7,9 +9,11 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
+        children:  [
           SizedBox.expand(
-            child: Container(color: Colors.red),
+            child: CustomPaint(
+              painter: BackgroundPainter(),
+            ),
           )
         ],
       ),
