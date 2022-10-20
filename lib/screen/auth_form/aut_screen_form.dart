@@ -32,7 +32,15 @@ class _AuthScreenState extends State<AuthScreen>
                 animation: _controller.view,
               ),
             ),
-          )
+          ),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                _controller.forward(from: 0);
+              },
+              child: const Text('Animate'),
+            ),
+          ),
         ],
       ),
     );
