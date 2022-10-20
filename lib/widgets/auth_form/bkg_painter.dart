@@ -69,6 +69,10 @@ class BackgroundPainter extends CustomPainter {
     path.moveTo(size.width, size.height / 2);
     path.lineTo(size.width, 0);
     path.lineTo(0, 0);
+    path.lineTo(
+      0,
+      lerpDouble(0, size.height, blueAnim.value),
+    );
     // path.quadraticBezierTo(size.width / 2, 0, size.width, size.height / 2);
     _addPointsToPath(path, [
       Point(
